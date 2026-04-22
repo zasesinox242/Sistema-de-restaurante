@@ -1,0 +1,424 @@
+﻿@page "/admin/carta"
+@using AppFinal.Models
+@inject NavigationManager Navigation
+@inject AuthService AuthService
+@inject CartaService CartaService
+@inject CategoriaService CategoriaService
+@inject IJSRuntime JS
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+
+<PaginaProtegida RolRequerido="ADMIN">
+    <div style="min-height:100vh; background:#f6f8fb; padding:32px 20px;">
+        <div style="max-width:1250px; margin:0 auto;">
+
+            <!-- Header -->
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:24px;">
+                <div style="display:flex; align-items:flex-start; gap:14px;">
+                    <button @onclick="Volver"
+                            style="padding:12px 16px; background:white; border:1px solid #d1d5db; border-radius:12px; font-size:14px; font-weight:700; cursor:pointer; color:#1f2937; box-shadow:0 4px 10px rgba(0,0,0,0.04);">
+                        ← Volver
+                    </button>
+
+                    <div>
+                        <p style="margin:0; font-size:13px; font-weight:700; letter-spacing:1px; color:#6b7280; text-transform:uppercase;">
+                            Administración
+                        </p>
+                        <h1 style="margin:6px 0 4px; font-size:34px; font-weight:800; color:#111827;">
+                            Gestión de Carta
+                        </h1>
+                        <p style="margin:0; font-size:15px; color:#6b7280;">
+                            Bienvenido, <span style="font-weight:700; color:#374151;">@nombreUsuario</span>
+                        </p>
+                    </div>
+                </div>
+
+                <button @onclick="CerrarSesion"
+                        style="padding:12px 18px; background:#fff1f2; color:#be123c; border:1px solid #fecdd3; border-radius:12px; font-size:14px; font-weight:700; cursor:pointer;">
+                    Cerrar sesión
+                </button>
+            </div>
+
+            <!-- Resumen -->
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px; margin-bottom:24px;">
+                <div style="background:white; border:1px solid #e5e7eb; border-radius:18px; padding:18px 20px; box-shadow:0 6px 18px rgba(15,23,42,0.05);">
+                    <p style="margin:0 0 8px; font-size:12px; color:#9ca3af; text-transform:uppercase; letter-spacing:0.8px;">Items registrados</p>
+                    <p style="margin:0; font-size:30px; font-weight:800; color:#111827;">@cartas.Count</p>
+                </div>
+
+                <div style="background:white; border:1px solid #e5e7eb; border-radius:18px; padding:18px 20px; box-shadow:0 6px 18px rgba(15,23,42,0.05);">
+                    <p style="margin:0 0 8px; font-size:12px; color:#9ca3af; text-transform:uppercase; letter-spacing:0.8px;">Categorías</p>
+                    <p style="margin:0; font-size:30px; font-weight:800; color:#111827;">@categorias.Count</p>
+                </div>
+
+                <div style="background:white; border:1px solid #e5e7eb; border-radius:18px; padding:18px 20px; box-shadow:0 6px 18px rgba(15,23,42,0.05);">
+                    <p style="margin:0 0 8px; font-size:12px; color:#9ca3af; text-transform:uppercase; letter-spacing:0.8px;">Modo actual</p>
+                    <p style="margin:0; font-size:18px; font-weight:800; color:#111827;">@(editando ? "Edición" : "Registro")</p>
+                </div>
+            </div>
+
+            <!-- Contenido -->
+            <div style="display:grid; grid-template-columns:1.05fr 1.65fr; gap:22px; align-items:start;">
+
+                <!-- Formulario -->
+                <div style="background:white; border:1px solid #e5e7eb; border-radius:22px; padding:24px; box-shadow:0 8px 24px rgba(15,23,42,0.05);">
+                    <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+                        <span style="font-size:24px;">🍽️</span>
+                        <h3 style="margin:0; font-size:22px; font-weight:800; color:#111827;">
+                            @(editando ? "Editar Item" : "Nuevo Item")
+                        </h3>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+                        <div style="grid-column: span 2;">
+                            <label style="display:block; margin-bottom:8px; font-size:13px; font-weight:700; color:#4b5563;">Nombre</label>
+                            <input @bind="cartaForm.nombre"
+                                   placeholder="Nombre del plato"
+                                   style="width:100%; padding:12px 14px; border:1px solid #d1d5db; border-radius:12px; font-size:14px; box-sizing:border-box;" />
+                        </div>
+
+                        <div>
+                            <label style="display:block; margin-bottom:8px; font-size:13px; font-weight:700; color:#4b5563;">Precio (S/)</label>
+                            <input type="number"
+                                   step="0.01"
+                                   @bind="cartaForm.precio"
+                                   placeholder="0.00"
+                                   style="width:100%; padding:12px 14px; border:1px solid #d1d5db; border-radius:12px; font-size:14px; box-sizing:border-box;" />
+                        </div>
+
+                        <div>
+                            <label style="display:block; margin-bottom:8px; font-size:13px; font-weight:700; color:#4b5563;">Categoría</label>
+                            <select @bind="categoriaSeleccionada"
+                                    style="width:100%; padding:12px 14px; border:1px solid #d1d5db; border-radius:12px; font-size:14px; box-sizing:border-box;">
+                                <option value="">Seleccionar categoría</option>
+                                @foreach (var cat in categorias)
+                                {
+                                    <option value="@cat.codigoCategoria">@cat.nombre</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div style="grid-column: span 2;">
+                            <label style="display:block; margin-bottom:8px; font-size:13px; font-weight:700; color:#4b5563;">Descripción</label>
+                            <textarea @bind="cartaForm.descripcion"
+                                      placeholder="Descripción del plato..."
+                                      rows="4"
+                                      style="width:100%; padding:12px 14px; border:1px solid #d1d5db; border-radius:12px; font-size:14px; resize:vertical; box-sizing:border-box;"></textarea>
+                        </div>
+
+                        <div style="grid-column: span 2;">
+                            <label style="display:block; margin-bottom:8px; font-size:13px; font-weight:700; color:#4b5563;">Estado</label>
+                            <select @bind="cartaForm.estado"
+                                    style="width:100%; padding:12px 14px; border:1px solid #d1d5db; border-radius:12px; font-size:14px; box-sizing:border-box;">
+                                <option>Activo</option>
+                                <option>Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(mensaje))
+                    {
+                        <div style="padding:12px 14px; margin-bottom:16px; border-radius:12px; background-color:@(esError ? "#fff1f2" : "#f0fdf4"); color:@(esError ? "#be123c" : "#166534"); border:1px solid @(esError ? "#fecdd3" : "#bbf7d0"); font-size:14px; font-weight:600;">
+                            @mensaje
+                        </div>
+                    }
+
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                        <button @onclick="GuardarCarta"
+                                style="padding:12px 18px; background:#171a35; color:white; border:none; border-radius:12px; font-size:14px; font-weight:700; cursor:pointer; box-shadow:0 8px 18px rgba(23,26,53,0.18);">
+                            @(editando ? "Actualizar item" : "Guardar item")
+                        </button>
+
+                        @if (editando)
+                        {
+                            <button @onclick="CancelarEdicion"
+                                    style="padding:12px 18px; background:#f3f4f6; color:#374151; border:none; border-radius:12px; font-size:14px; font-weight:700; cursor:pointer;">
+                                Cancelar
+                            </button>
+                        }
+                    </div>
+                </div>
+
+                <!-- Tabla -->
+                <div style="background:white; border:1px solid #e5e7eb; border-radius:22px; padding:22px; box-shadow:0 8px 24px rgba(15,23,42,0.05);">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:18px;">
+                        <div>
+                            <h3 style="margin:0; font-size:22px; font-weight:800; color:#111827;">Items de la Carta</h3>
+                            <p style="margin:6px 0 0; font-size:14px; color:#6b7280;">Administra platos, precios y disponibilidad del menú.</p>
+                        </div>
+
+                        <div style="padding:8px 12px; background:#f9fafb; border:1px solid #eef2f7; border-radius:999px; font-size:13px; font-weight:700; color:#374151;">
+                            Total: @cartas.Count
+                        </div>
+                    </div>
+
+                    @if (cargando)
+                    {
+                        <div style="text-align:center; padding:48px 12px; color:#6b7280;">
+                            Cargando items...
+                        </div>
+                    }
+                    else if (cartas == null || !cartas.Any())
+                    {
+                        <div style="text-align:center; padding:48px 12px; color:#6b7280;">
+                            No hay items en la carta
+                        </div>
+                    }
+                    else
+                    {
+                        <div style="overflow-x:auto;">
+                            <table style="width:100%; border-collapse:collapse; min-width:860px;">
+                                <thead>
+                                    <tr style="background:#f9fafb;">
+                                        <th style="padding:14px 12px; text-align:left; font-size:12px; color:#6b7280; text-transform:uppercase; letter-spacing:0.8px;">Item</th>
+                                        <th style="padding:14px 12px; text-align:left; font-size:12px; color:#6b7280; text-transform:uppercase; letter-spacing:0.8px;">Categoría</th>
+                                        <th style="padding:14px 12px; text-align:left; font-size:12px; color:#6b7280; text-transform:uppercase; letter-spacing:0.8px;">Precio</th>
+                                        <th style="padding:14px 12px; text-align:left; font-size:12px; color:#6b7280; text-transform:uppercase; letter-spacing:0.8px;">Estado</th>
+                                        <th style="padding:14px 12px; text-align:right; font-size:12px; color:#6b7280; text-transform:uppercase; letter-spacing:0.8px;">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in cartas)
+                                    {
+                                        <tr style="border-top:1px solid #f3f4f6;">
+                                            <td style="padding:16px 12px;">
+                                                <div style="display:flex; flex-direction:column;">
+                                                    <span style="font-size:15px; font-weight:700; color:#111827;">@item.nombre</span>
+                                                    <span style="font-size:13px; color:#6b7280;">
+                                                        @(string.IsNullOrWhiteSpace(item.descripcion) ? "Sin descripción" : item.descripcion)
+                                                    </span>
+                                                </div>
+                                            </td>
+
+                                            <td style="padding:16px 12px;">
+                                                <span style="font-size:13px; font-weight:700; padding:7px 12px; border-radius:999px; background:#eef2ff; color:#4338ca;">
+                                                    @(item.categoria?.nombre ?? "Sin categoría")
+                                                </span>
+                                            </td>
+
+                                            <td style="padding:16px 12px;">
+                                                <span style="font-size:16px; font-weight:800; color:#111827;">
+                                                    S/ @item.precio.ToString("0.00")
+                                                </span>
+                                            </td>
+
+                                            <td style="padding:16px 12px;">
+                                                <span style="@ObtenerEstiloEstado(item.estado)">
+                                                    @item.estado
+                                                </span>
+                                            </td>
+
+                                            <td style="padding:16px 12px; text-align:right;">
+                                                <button @onclick="() => EditarCarta(item)"
+                                                        style="margin-right:8px; padding:8px 12px; background:#171a35; color:white; border:none; border-radius:10px; font-size:13px; font-weight:700; cursor:pointer;">
+                                                    Editar
+                                                </button>
+                                                <button @onclick="() => EliminarCarta(item.codigo!.Value)"
+                                                        style="padding:8px 12px; background:#fff1f2; color:#be123c; border:1px solid #fecdd3; border-radius:10px; font-size:13px; font-weight:700; cursor:pointer;">
+                                                    Eliminar
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</PaginaProtegida>
+
+@code {
+    private string nombreUsuario = "Usuario";
+    private List<Carta> cartas = new();
+    private List<Categoria> categorias = new();
+    private Carta cartaForm = new();
+    private int? categoriaSeleccionada = null;
+    private bool editando = false;
+    private string mensaje = "";
+    private bool esError = false;
+    private bool cargando = true;
+    private bool inicializado = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender || inicializado)
+            return;
+
+        inicializado = true;
+
+        nombreUsuario = await AuthService.ObtenerUsuario() ?? "Admin";
+        await CargarCategorias();
+        await CargarCartas();
+        cargando = false;
+        StateHasChanged();
+    }
+
+    private async Task CargarCategorias()
+    {
+        try
+        {
+            categorias = await CategoriaService.GetCategoriasAsync();
+            Console.WriteLine($"[CartaPage] Categorías cargadas: {categorias.Count}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"[CartaPage] Error cargando categorías: {ex.Message}");
+        }
+    }
+
+    private async Task CargarCartas()
+    {
+        try
+        {
+            cartas = await CartaService.GetCartasAsync();
+            Console.WriteLine($"[CartaPage] Cartas cargadas: {cartas.Count}");
+        }
+        catch (Exception ex)
+        {
+            mensaje = $"Error al cargar: {ex.Message}";
+            esError = true;
+            Console.WriteLine($"[CartaPage] Error: {ex.Message}");
+        }
+    }
+
+    private async Task GuardarCarta()
+    {
+        if (string.IsNullOrWhiteSpace(cartaForm.nombre))
+        {
+            mensaje = "El nombre es requerido";
+            esError = true;
+            return;
+        }
+
+        if (categoriaSeleccionada.HasValue && categoriaSeleccionada.Value > 0)
+        {
+            cartaForm.categoria = new Categoria { codigoCategoria = categoriaSeleccionada.Value };
+        }
+        else
+        {
+            cartaForm.categoria = null;
+        }
+
+        try
+        {
+            if (editando)
+            {
+                if (!cartaForm.codigo.HasValue)
+                {
+                    mensaje = "ID inválido";
+                    esError = true;
+                    return;
+                }
+
+                var ok = await CartaService.UpdateCartaAsync(cartaForm.codigo.Value, cartaForm);
+
+                if (ok)
+                {
+                    mensaje = "Item actualizado correctamente";
+                    esError = false;
+                    await CargarCartas();
+                    CancelarEdicion();
+                }
+                else
+                {
+                    mensaje = "Error al actualizar";
+                    esError = true;
+                }
+            }
+            else
+            {
+                cartaForm.codigo = null;
+                var nuevo = await CartaService.CreateCartaAsync(cartaForm);
+
+                if (nuevo != null)
+                {
+                    mensaje = "Item creado correctamente";
+                    esError = false;
+                    await CargarCartas();
+                    cartaForm = new();
+                    categoriaSeleccionada = null;
+                }
+                else
+                {
+                    mensaje = "Error al crear. Verifique los datos.";
+                    esError = true;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            mensaje = $"Error: {ex.Message}";
+            esError = true;
+            Console.WriteLine($"[CartaPage] Guardar exception: {ex.Message}");
+        }
+    }
+
+    private void EditarCarta(Carta item)
+    {
+        cartaForm = new Carta
+        {
+            codigo = item.codigo,
+            nombre = item.nombre,
+            descripcion = item.descripcion,
+            estado = item.estado,
+            precio = item.precio,
+            categoria = item.categoria != null ? new Categoria { codigoCategoria = item.categoria.codigoCategoria } : null
+        };
+
+        categoriaSeleccionada = item.categoria?.codigoCategoria;
+        editando = true;
+    }
+
+    private void CancelarEdicion()
+    {
+        cartaForm = new();
+        categoriaSeleccionada = null;
+        editando = false;
+        mensaje = "";
+    }
+
+    private async Task EliminarCarta(int id)
+    {
+        if (!await JS.InvokeAsync<bool>("confirm", "¿Eliminar este item de la carta?"))
+            return;
+
+        var ok = await CartaService.DeleteCartaAsync(id);
+
+        if (ok)
+        {
+            mensaje = "Item eliminado correctamente";
+            esError = false;
+            await CargarCartas();
+
+            if (editando && cartaForm.codigo == id)
+                CancelarEdicion();
+        }
+        else
+        {
+            mensaje = "Error al eliminar";
+            esError = true;
+        }
+    }
+
+    private string ObtenerEstiloEstado(string? estado)
+    {
+        if (string.Equals(estado, "Activo", StringComparison.OrdinalIgnoreCase))
+            return "font-size:12px; font-weight:700; padding:7px 12px; border-radius:999px; background:#dcfce7; color:#15803d;";
+
+        return "font-size:12px; font-weight:700; padding:7px 12px; border-radius:999px; background:#fee2e2; color:#b91c1c;";
+    }
+
+    private void Volver()
+    {
+        Navigation.NavigateTo("/admin/dashboard");
+    }
+
+    private async Task CerrarSesion()
+    {
+        await AuthService.Logout();
+        Navigation.NavigateTo("/login");
+    }
+}

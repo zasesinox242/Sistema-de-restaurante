@@ -1,0 +1,396 @@
+﻿@page "/mozo/nuevo-pedido"
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@using AppFinal.Models
+@using AppFinal.Services
+@inject PedidoMozoApiService PedidoMozoApiService
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+
+<PaginaProtegida RolRequerido="MOZO">
+    <div style="min-height:100vh; background:linear-gradient(180deg, #f8fafc 0%, #f6f8fb 100%); padding:32px 20px;">
+        <div style="max-width:1240px; margin:0 auto;">
+
+            <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:24px;">
+                <div style="display:flex; align-items:flex-start; gap:14px;">
+                    <button @onclick="Volver"
+                            style="padding:12px 16px; background:white; border:1px solid #dbe1ea; border-radius:14px; font-size:14px; font-weight:700; cursor:pointer; color:#1f2937; box-shadow:0 8px 18px rgba(15,23,42,0.05);">
+                        ← Volver
+                    </button>
+
+                    <div>
+                        <p style="margin:0; font-size:12px; font-weight:800; letter-spacing:1px; color:#6b7280; text-transform:uppercase;">
+                            Panel Mozo
+                        </p>
+                        <h1 style="margin:8px 0 4px; font-size:36px; font-weight:800; color:#0f172a;">
+                            Nuevo Pedido
+                        </h1>
+                        <p style="margin:0; font-size:15px; color:#64748b;">
+                            Registra pedidos de forma rápida y ordenada para cada mesa.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:minmax(0, 2fr) minmax(300px, 1fr); gap:22px; align-items:start;">
+
+                <div style="display:flex; flex-direction:column; gap:20px; min-width:0;">
+
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:16px;">
+                        <div style="background:white; border:1px solid #e5e7eb; border-radius:20px; padding:20px; box-shadow:0 10px 24px rgba(15,23,42,0.05);">
+                            <p style="margin:0 0 8px; font-size:12px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.8px;">Mesa seleccionada</p>
+                            <p style="margin:0; font-size:20px; font-weight:800; color:#0f172a;">
+                                @(mesaSeleccionadaId == 0 ? "Pendiente" : ObtenerNombreMesa())
+                            </p>
+                        </div>
+
+                        <div style="background:white; border:1px solid #e5e7eb; border-radius:20px; padding:20px; box-shadow:0 10px 24px rgba(15,23,42,0.05);">
+                            <p style="margin:0 0 8px; font-size:12px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.8px;">Items agregados</p>
+                            <p style="margin:0; font-size:20px; font-weight:800; color:#0f172a;">@itemsPedido.Count</p>
+                        </div>
+
+                        <div style="background:white; border:1px solid #e5e7eb; border-radius:20px; padding:20px; box-shadow:0 10px 24px rgba(15,23,42,0.05);">
+                            <p style="margin:0 0 8px; font-size:12px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.8px;">Total actual</p>
+                            <p style="margin:0; font-size:20px; font-weight:800; color:#0f172a;">S/ @Total.ToString("0.00")</p>
+                        </div>
+                    </div>
+
+                    <div style="background:white; border:1px solid #e5e7eb; border-radius:24px; padding:26px; box-shadow:0 10px 30px rgba(15,23,42,0.05);">
+                        <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+                            <div style="width:46px; height:46px; border-radius:14px; background:#eef2ff; display:flex; align-items:center; justify-content:center; font-size:24px;">
+                                📝
+                            </div>
+                            <div>
+                                <h3 style="margin:0; font-size:22px; font-weight:800; color:#0f172a;">Información del pedido</h3>
+                                <p style="margin:4px 0 0; font-size:14px; color:#64748b;">Selecciona la mesa y agrega indicaciones para cocina.</p>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom:18px;">
+                            <label style="font-size:13px; color:#475569; display:block; margin-bottom:8px; font-weight:700;">Mesa</label>
+                            <select @bind="mesaSeleccionadaId"
+                                    style="width:100%; padding:14px 15px; border:1px solid #d1d5db; border-radius:14px; font-size:15px; background:white; color:#0f172a; box-sizing:border-box;">
+                                <option value="0">Selecciona una mesa</option>
+                                @foreach (var mesa in mesas)
+                                {
+                                    <option value="@mesa.Id">@mesa.Nombre</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div>
+                            <label style="font-size:13px; color:#475569; display:block; margin-bottom:8px; font-weight:700;">Comentarios</label>
+                            <textarea @bind="comentarios"
+                                      placeholder="Alguna indicación especial..."
+                                      style="width:100%; padding:14px; border:1px solid #d1d5db; border-radius:14px; font-size:15px; box-sizing:border-box; resize:vertical; min-height:120px; color:#0f172a;"></textarea>
+                        </div>
+                    </div>
+
+                    <div style="background:white; border:1px solid #e5e7eb; border-radius:24px; padding:26px; box-shadow:0 10px 30px rgba(15,23,42,0.05);">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:18px;">
+                            <div style="display:flex; align-items:center; gap:10px;">
+                                <div style="width:46px; height:46px; border-radius:14px; background:#fff7ed; display:flex; align-items:center; justify-content:center; font-size:24px;">
+                                    🍽️
+                                </div>
+                                <div>
+                                    <h3 style="margin:0; font-size:22px; font-weight:800; color:#0f172a;">Agregar items</h3>
+                                    <p style="margin:4px 0 0; font-size:14px; color:#64748b;">Selecciona productos y cantidades para construir el pedido.</p>
+                                </div>
+                            </div>
+
+                            <div style="padding:8px 12px; background:#f8fafc; border:1px solid #eef2f7; border-radius:999px; font-size:13px; font-weight:700; color:#334155;">
+                                Total items: @itemsPedido.Count
+                            </div>
+                        </div>
+
+                        <div style="display:grid; grid-template-columns:minmax(0, 1fr) 120px 140px; gap:10px; margin-bottom:18px; align-items:end;">
+                            <div>
+                                <label style="font-size:13px; color:#475569; display:block; margin-bottom:8px; font-weight:700;">Item</label>
+                                <select @bind="itemSeleccionadoId"
+                                        style="width:100%; min-width:0; padding:14px 15px; border:1px solid #d1d5db; border-radius:14px; font-size:15px; background:white; color:#0f172a; box-sizing:border-box;">
+                                    <option value="0">Selecciona un item</option>
+                                    @foreach (var item in carta)
+                                    {
+                                        <option value="@item.Id">@item.Nombre — S/ @item.Precio.ToString("0.00")</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div>
+                                <label style="font-size:13px; color:#475569; display:block; margin-bottom:8px; font-weight:700;">Cantidad</label>
+                                <input type="number"
+                                       min="1"
+                                       @bind="cantidad"
+                                       style="width:100%; padding:14px 12px; border:1px solid #d1d5db; border-radius:14px; font-size:15px; text-align:center; color:#0f172a; box-sizing:border-box;" />
+                            </div>
+
+                            <button @onclick="AgregarItem"
+                                    style="padding:14px 18px; background:#171a35; color:white; border:none; border-radius:14px; font-size:14px; font-weight:700; cursor:pointer; min-width:120px; box-shadow:0 8px 18px rgba(23,26,53,0.18);">
+                                Agregar
+                            </button>
+                        </div>
+
+                        <div style="border-top:1px solid #f1f5f9; padding-top:16px;">
+                            @if (itemsPedido.Count == 0)
+                            {
+                                <div style="padding:28px 0; text-align:center; color:#64748b;">
+                                    <div style="font-size:34px; margin-bottom:8px;">🧾</div>
+                                    <p style="margin:0; font-size:14px;">Aún no agregaste items al pedido.</p>
+                                </div>
+                            }
+                            else
+                            {
+                                @foreach (var item in itemsPedido)
+                                {
+                                    <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; padding:16px 0; border-bottom:1px solid #f1f5f9; flex-wrap:wrap;">
+                                        <div style="display:flex; align-items:center; gap:14px; min-width:220px;">
+                                            <div style="width:42px; height:42px; border-radius:12px; background:#f8fafc; display:flex; align-items:center; justify-content:center; font-size:20px;">
+                                                🍴
+                                            </div>
+
+                                            <div>
+                                                <p style="margin:0; font-size:17px; font-weight:700; color:#0f172a;">@item.Nombre</p>
+                                                <p style="margin:4px 0 0; font-size:13px; color:#64748b;">
+                                                    @item.Cantidad x S/ @item.PrecioUnitario.ToString("0.00")
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div style="display:flex; align-items:center; gap:12px;">
+                                            <span style="font-size:18px; font-weight:800; color:#0f172a;">S/ @item.SubTotal.ToString("0.00")</span>
+                                            <button @onclick="() => QuitarItem(item.ItemId)"
+                                                    style="padding:8px 12px; background:#fff1f2; border:1px solid #fecdd3; color:#be123c; border-radius:10px; font-size:12px; font-weight:700; cursor:pointer;">
+                                                Quitar
+                                            </button>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+                            @if (!string.IsNullOrWhiteSpace(mensaje))
+                            {
+                                <div style="padding:12px 16px; border-radius:14px; margin-top:16px; background:@(esError ? "#fff1f2" : "#f0fdf4"); border:1px solid @(esError ? "#fecdd3" : "#bbf7d0"); color:@(esError ? "#be123c" : "#166534"); font-size:14px; font-weight:600;">
+                                    @mensaje
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div style="min-width:300px;">
+                    <div style="background:white; border:1px solid #e5e7eb; border-radius:24px; padding:24px; box-shadow:0 10px 30px rgba(15,23,42,0.05); position:sticky; top:24px;">
+                        <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+                            <div style="width:46px; height:46px; border-radius:14px; background:#ecfeff; display:flex; align-items:center; justify-content:center; font-size:24px;">
+                                📋
+                            </div>
+                            <div>
+                                <h3 style="margin:0; font-size:22px; font-weight:800; color:#0f172a;">Resumen</h3>
+                                <p style="margin:4px 0 0; font-size:14px; color:#64748b;">Verifica la información antes de confirmar.</p>
+                            </div>
+                        </div>
+
+                        <div style="display:flex; flex-direction:column; gap:14px;">
+                            <div style="background:#f8fafc; border:1px solid #eef2f7; border-radius:16px; padding:14px;">
+                                <p style="margin:0; font-size:12px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.8px;">Mesa seleccionada</p>
+                                <p style="margin:6px 0 0; font-size:16px; font-weight:800; color:#0f172a;">
+                                    @(mesaSeleccionadaId == 0 ? "No seleccionada" : ObtenerNombreMesa())
+                                </p>
+                            </div>
+
+                            <div style="background:#f8fafc; border:1px solid #eef2f7; border-radius:16px; padding:14px;">
+                                <p style="margin:0; font-size:12px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.8px;">Items agregados</p>
+                                <p style="margin:6px 0 0; font-size:16px; font-weight:800; color:#0f172a;">@itemsPedido.Count item(s)</p>
+                            </div>
+
+                            <div style="background:#f8fafc; border:1px solid #eef2f7; border-radius:16px; padding:14px;">
+                                <p style="margin:0; font-size:12px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.8px;">Comentarios</p>
+                                <p style="margin:6px 0 0; font-size:14px; color:#475569; line-height:1.6;">
+                                    @(string.IsNullOrWhiteSpace(comentarios) ? "Sin comentarios" : comentarios)
+                                </p>
+                            </div>
+
+                            <div style="padding-top:8px; border-top:1px solid #f1f5f9;">
+                                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:14px;">
+                                    <span style="font-size:15px; color:#64748b;">Total</span>
+                                    <span style="font-size:32px; font-weight:800; color:#0f172a;">S/ @Total.ToString("0.00")</span>
+                                </div>
+                            </div>
+
+                            <button @onclick="ConfirmarPedido"
+                                    disabled="@(mesaSeleccionadaId == 0 || itemsPedido.Count == 0)"
+                                    style="@ObtenerEstiloBotonConfirmar()">
+                                Confirmar Pedido
+                            </button>
+
+                            <p style="margin:0; font-size:12px; color:#94a3b8; text-align:center; line-height:1.5;">
+                                Completa la mesa y agrega al menos un item para continuar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</PaginaProtegida>
+
+@code {
+    private List<MesaMozoDto> mesas = new();
+    private List<CartaMozoDto> carta = new();
+    private List<ItemTemporal> itemsPedido = new();
+
+    private int mesaSeleccionadaId = 0;
+    private string comentarios = "";
+    private int itemSeleccionadoId = 0;
+    private int cantidad = 1;
+    private string mensaje = "";
+    private bool esError = false;
+    private bool inicializado = false;
+
+    private decimal Total => itemsPedido.Sum(x => x.SubTotal);
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender || inicializado)
+            return;
+
+        inicializado = true;
+
+        try
+        {
+            mesas = await PedidoMozoApiService.ObtenerMesasAsync();
+            carta = await PedidoMozoApiService.ObtenerCartaAsync();
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            esError = true;
+            mensaje = "Error al cargar mesas o carta: " + ex.Message;
+            StateHasChanged();
+        }
+    }
+
+    private void Volver()
+    {
+        Navigation.NavigateTo("/mozo/pedidos");
+    }
+
+    private void AgregarItem()
+    {
+        esError = false;
+        mensaje = "";
+
+        if (itemSeleccionadoId == 0)
+        {
+            esError = true;
+            mensaje = "Debes seleccionar un item.";
+            return;
+        }
+
+        if (cantidad <= 0)
+        {
+            esError = true;
+            mensaje = "La cantidad debe ser mayor que cero.";
+            return;
+        }
+
+        var itemCarta = carta.FirstOrDefault(x => x.Id == itemSeleccionadoId);
+        if (itemCarta == null)
+        {
+            esError = true;
+            mensaje = "No se encontró el item seleccionado.";
+            return;
+        }
+
+        var existente = itemsPedido.FirstOrDefault(x => x.ItemId == itemSeleccionadoId);
+        if (existente != null)
+        {
+            existente.Cantidad += cantidad;
+        }
+        else
+        {
+            itemsPedido.Add(new ItemTemporal
+            {
+                ItemId = itemCarta.Id,
+                Nombre = itemCarta.Nombre,
+                Cantidad = cantidad,
+                PrecioUnitario = itemCarta.Precio
+            });
+        }
+
+        itemSeleccionadoId = 0;
+        cantidad = 1;
+    }
+
+    private void QuitarItem(int itemId)
+    {
+        var item = itemsPedido.FirstOrDefault(x => x.ItemId == itemId);
+        if (item != null)
+        {
+            itemsPedido.Remove(item);
+        }
+    }
+
+    private async Task ConfirmarPedido()
+    {
+        esError = false;
+        mensaje = "";
+
+        if (mesaSeleccionadaId == 0)
+        {
+            esError = true;
+            mensaje = "Debes seleccionar una mesa.";
+            return;
+        }
+
+        if (itemsPedido.Count == 0)
+        {
+            esError = true;
+            mensaje = "Debes agregar al menos un item al pedido.";
+            return;
+        }
+
+        try
+        {
+            var dto = new CrearPedidoMozoDto
+            {
+                MesaId = mesaSeleccionadaId,
+                Comentarios = comentarios,
+                Items = itemsPedido.Select(x => new CrearPedidoItemMozoDto
+                {
+                    ItemId = x.ItemId,
+                    Cantidad = x.Cantidad
+                }).ToList()
+            };
+
+            var nuevoId = await PedidoMozoApiService.CrearPedidoAsync(dto);
+            Navigation.NavigateTo($"/mozo/detalle-pedido/{nuevoId}");
+        }
+        catch (Exception ex)
+        {
+            esError = true;
+            mensaje = ex.Message;
+        }
+    }
+
+    private string ObtenerNombreMesa()
+    {
+        return mesas.FirstOrDefault(x => x.Id == mesaSeleccionadaId)?.Nombre ?? "No seleccionada";
+    }
+
+    private string ObtenerEstiloBotonConfirmar()
+    {
+        var deshabilitado = mesaSeleccionadaId == 0 || itemsPedido.Count == 0;
+
+        return deshabilitado
+            ? "width:100%; padding:15px 0; background:#d1d5db; color:white; border:none; border-radius:14px; font-size:15px; font-weight:800; cursor:not-allowed;"
+            : "width:100%; padding:15px 0; background:#171a35; color:white; border:none; border-radius:14px; font-size:15px; font-weight:800; cursor:pointer; box-shadow:0 10px 20px rgba(23,26,53,0.18);";
+    }
+
+    private class ItemTemporal
+    {
+        public int ItemId { get; set; }
+        public string Nombre { get; set; } = "";
+        public int Cantidad { get; set; }
+        public decimal PrecioUnitario { get; set; }
+        public decimal SubTotal => Cantidad * PrecioUnitario;
+    }
+}

@@ -1,0 +1,155 @@
+﻿@page "/login"
+@using Microsoft.AspNetCore.Components.Web
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+
+<div style="display:flex; justify-content:center; align-items:center; min-height:100vh; background:#f5f5f5;">
+    <div style="width:380px; background:white; border:0.5px solid #e0e0e0; border-radius:12px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+        <div style="background:#1a1a2e; padding:2rem; text-align:center;">
+            <div style="width:56px; height:56px; border-radius:50%; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; margin:0 auto 1rem;">
+                <span style="font-size:26px;">🍽️</span>
+            </div>
+            <p style="color:white; font-size:18px; font-weight:500; margin:0 0 4px;">Restaurante</p>
+            <p style="color:rgba(255,255,255,0.55); font-size:13px; margin:0;">Sistema de gestión</p>
+        </div>
+
+        <div style="padding:1.75rem 1.75rem 2rem;">
+            <p style="font-size:14px; color:#666; margin:0 0 1.25rem; text-align:center;">Ingresa tus credenciales</p>
+
+            <div style="margin-bottom:1rem;">
+                <label style="font-size:13px; color:#555; display:block; margin-bottom:6px;">Usuario</label>
+                <input @bind="username"
+                       @bind:event="oninput"
+                       @onkeydown="TeclaPresionada"
+                       type="text"
+                       placeholder="Ingresa tu usuario"
+                       disabled="@cargando"
+                       style="width:100%; padding:10px 12px; border:1px solid #ddd; border-radius:8px; font-size:14px;" />
+            </div>
+
+            <div style="margin-bottom:1.5rem;">
+                <label style="font-size:13px; color:#555; display:block; margin-bottom:6px;">Contraseña</label>
+                <input @bind="password"
+                       @bind:event="oninput"
+                       @onkeydown="TeclaPresionada"
+                       type="password"
+                       placeholder="Ingresa tu contraseña"
+                       disabled="@cargando"
+                       style="width:100%; padding:10px 12px; border:1px solid #ddd; border-radius:8px; font-size:14px;" />
+            </div>
+
+            @if (!string.IsNullOrWhiteSpace(mensaje))
+            {
+                <div style="font-size:13px; padding:10px 14px; border-radius:8px; margin-bottom:1rem; background:@(esError ? "#fff0f0" : "#f0fff4"); border:1px solid @(esError ? "#ffcccc" : "#c6f6d5"); color:@(esError ? "#c53030" : "#276749");">
+                    @mensaje
+                </div>
+            }
+
+            <button type="button"
+                    @onclick="DoLogin"
+                    disabled="@cargando"
+                    style="width:100%; padding:0.65rem; background:@(cargando ? "#555" : "#1a1a2e"); color:white; border:none; border-radius:8px; font-size:14px; font-weight:500; cursor:pointer;">
+                @(cargando ? "Verificando..." : "Iniciar sesión")
+            </button>
+
+            <p style="text-align:center; font-size:12px; color:#aaa; margin:1.25rem 0 0;">Si tienes problemas para ingresar, contacta al administrador.</p>
+        </div>
+    </div>
+</div>
+
+@code {
+    // Variables donde se guardan los datos del formulario
+    private string username = ""; // Guarda el usuario que escribe la persona
+    private string password = ""; // Guarda la contraseña
+    private string mensaje = "";  // Mensaje que se muestra (error o aviso)
+    private bool esError = false; // Indica si el mensaje es un error
+    private bool cargando = false; // Indica si el sistema está verificando
+
+    // Este método detecta cuando se presiona una tecla
+    private async Task TeclaPresionada(KeyboardEventArgs e)
+    {
+        // Si la tecla presionada es "Enter"
+        if (e.Key == "Enter")
+        {
+            // Ejecuta el login
+            await DoLogin();
+        }
+    }
+
+    // Método principal para iniciar sesión
+    private async Task DoLogin()
+    {
+        try
+        {
+            // Verifica que el usuario y contraseña no estén vacíos
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                mensaje = "Ingresa tu usuario y contraseña.";
+                esError = true;
+                return; // Detiene el proceso
+            }
+
+            // Activa estado de carga
+            cargando = true;
+            esError = false;
+            mensaje = "";
+
+            // Llama al servicio para intentar iniciar sesión
+            var token = await AuthService.Login(username.Trim(), password);
+
+            // Si no devuelve token, el login falló
+            if (string.IsNullOrWhiteSpace(token))
+            {
+                mensaje = "No se pudo iniciar sesión. Verifica tus credenciales.";
+                esError = true;
+                cargando = false;
+                return;
+            }
+
+            // Obtiene el rol del usuario (ADMIN, CHEF, MOZO, etc.)
+            var rol = await AuthService.ObtenerRol();
+
+            // Si no tiene rol válido
+            if (string.IsNullOrWhiteSpace(rol))
+            {
+                mensaje = "No se encontró un rol válido para este usuario.";
+                esError = true;
+                cargando = false;
+                return;
+            }
+
+            // Convierte el rol a mayúsculas para evitar errores
+            rol = rol.ToUpper();
+
+            // Decide a qué página redirigir según el rol
+            string destino =
+                rol.Contains("ADMIN") ? "/admin/dashboard" :
+                rol.Contains("CHEF") ? "/chef/pedidos-pendientes" :
+                rol.Contains("MOZO") ? "/mozo/pedidos" :
+                "";
+
+            // Si no hay ruta asignada
+            if (string.IsNullOrWhiteSpace(destino))
+            {
+                mensaje = "El usuario no tiene una ruta asignada.";
+                esError = true;
+                cargando = false;
+                return;
+            }
+
+            // Desactiva carga
+            cargando = false;
+
+            // Redirige a la página correspondiente
+            Navigation.NavigateTo(destino);
+        }
+        catch (Exception ex)
+        {
+            // Captura errores inesperados y los muestra
+            mensaje = "ERROR REAL: " + ex.Message;
+            esError = true;
+            cargando = false;
+        }
+    }
+}

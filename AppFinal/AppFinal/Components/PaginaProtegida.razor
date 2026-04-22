@@ -1,0 +1,120 @@
+﻿@using Blazored.LocalStorage
+@using System.IdentityModel.Tokens.Jwt
+@inject ILocalStorageService LocalStorage
+@inject NavigationManager Navigation
+
+@if (!verificado)
+{
+    <p style="text-align:center; padding:2rem;">Verificando acceso...</p>
+}
+else if (autorizado)
+{
+    @ChildContent
+}
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public string? RolRequerido { get; set; }
+
+    private bool verificado = false;
+    private bool autorizado = false;
+    private bool validando = false;
+    private bool redirigiendo = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender || validando || verificado)
+            return;
+
+        validando = true;
+
+        try
+        {
+            string? token = null;
+
+            // Reintenta varias veces antes de asumir que no hay sesión
+            for (int i = 0; i < 5; i++)
+            {
+                try
+                {
+                    token = await LocalStorage.GetItemAsync<string>("authToken");
+                }
+                catch (InvalidOperationException)
+                {
+                    token = null;
+                }
+
+                if (!string.IsNullOrWhiteSpace(token))
+                    break;
+
+                await Task.Delay(150);
+            }
+
+            if (string.IsNullOrWhiteSpace(token))
+            {
+                autorizado = false;
+                verificado = true;
+                StateHasChanged();
+
+                if (!redirigiendo)
+                {
+                    redirigiendo = true;
+                    Navigation.NavigateTo("/login");
+                }
+
+                return;
+            }
+
+            autorizado = true;
+
+            if (!string.IsNullOrWhiteSpace(RolRequerido))
+            {
+                var rolBuscado = RolRequerido
+                    .Replace("ROLE_", "")
+                    .Trim()
+                    .ToUpper();
+
+                var handler = new JwtSecurityTokenHandler();
+                var jwt = handler.ReadJwtToken(token);
+
+                var roles = jwt.Claims
+                    .Where(c =>
+                        c.Type == "auth" ||
+                        c.Type == "role" ||
+                        c.Type == "roles" ||
+                        c.Type == "authorities")
+                    .SelectMany(c => c.Value
+                        .Replace("[", " ")
+                        .Replace("]", " ")
+                        .Replace("\"", " ")
+                        .Replace(",", " ")
+                        .Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+                    .Select(r => r.Replace("ROLE_", "").Trim().ToUpper())
+                    .ToList();
+
+                autorizado = roles.Contains(rolBuscado);
+            }
+
+            verificado = true;
+            StateHasChanged();
+
+            if (!autorizado && !redirigiendo)
+            {
+                redirigiendo = true;
+                Navigation.NavigateTo("/login");
+            }
+        }
+        catch
+        {
+            autorizado = false;
+            verificado = true;
+            StateHasChanged();
+
+            if (!redirigiendo)
+            {
+                redirigiendo = true;
+                Navigation.NavigateTo("/login");
+            }
+        }
+    }
+}

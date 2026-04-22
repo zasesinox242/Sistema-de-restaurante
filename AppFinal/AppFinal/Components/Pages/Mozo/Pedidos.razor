@@ -1,0 +1,311 @@
+﻿@page "/mozo/pedidos"
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@using AppFinal.Models
+@using AppFinal.Services
+@using System.Threading
+@implements IDisposable
+@inject PedidoMozoApiService PedidoMozoApiService
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+
+<PaginaProtegida RolRequerido="MOZO">
+    <div style="min-height:100vh; background:linear-gradient(180deg, #f8fafc 0%, #f6f8fb 100%); padding:32px 20px;">
+        <div style="max-width:1180px; margin:0 auto;">
+
+            <!-- Header -->
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px; gap:16px; flex-wrap:wrap;">
+                <div>
+                    <p style="margin:0; font-size:12px; font-weight:800; letter-spacing:1px; color:#6b7280; text-transform:uppercase;">
+                        Panel Mozo
+                    </p>
+                    <h1 style="margin:8px 0 4px; font-size:36px; font-weight:800; color:#0f172a;">
+                        Mis Pedidos
+                    </h1>
+                    <p style="margin:0; font-size:15px; color:#64748b;">
+                        Gestiona y consulta los pedidos registrados.
+                    </p>
+                    <p style="margin:6px 0 0; font-size:14px; color:#94a3b8;">
+                        Bienvenido, <span style="color:#334155; font-weight:700;">@nombreUsuario</span>
+                    </p>
+                </div>
+
+                <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                    <button @onclick="CargarPedidos"
+                            style="padding:12px 18px; background:white; color:#0f172a; border:1px solid #dbe1ea; border-radius:14px; font-size:14px; font-weight:700; cursor:pointer; box-shadow:0 8px 18px rgba(15,23,42,0.05);">
+                        ↻ Actualizar
+                    </button>
+
+                    <button @onclick="IrNuevoPedido"
+                            style="padding:12px 18px; background:#171a35; color:white; border:none; border-radius:14px; font-size:14px; font-weight:700; cursor:pointer; box-shadow:0 10px 20px rgba(23,26,53,0.18);">
+                        + Nuevo Pedido
+                    </button>
+
+                    <button @onclick="CerrarSesion"
+                            style="padding:12px 18px; background:#fff1f2; color:#be123c; border:1px solid #fecdd3; border-radius:14px; font-size:14px; font-weight:700; cursor:pointer;">
+                        Cerrar sesión
+                    </button>
+                </div>
+            </div>
+
+            <!-- Resumen -->
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px; margin-bottom:24px;">
+                <div style="background:white; border:1px solid #e5e7eb; border-radius:20px; padding:20px; box-shadow:0 10px 24px rgba(15,23,42,0.05);">
+                    <p style="margin:0 0 8px; font-size:12px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.8px;">Pedidos registrados</p>
+                    <p style="margin:0; font-size:32px; font-weight:800; color:#0f172a;">@pedidos.Count</p>
+                </div>
+
+                <div style="background:white; border:1px solid #e5e7eb; border-radius:20px; padding:20px; box-shadow:0 10px 24px rgba(15,23,42,0.05);">
+                    <p style="margin:0 0 8px; font-size:12px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.8px;">En espera</p>
+                    <p style="margin:0; font-size:32px; font-weight:800; color:#0f172a;">@TotalEnEspera</p>
+                </div>
+
+                <div style="background:white; border:1px solid #e5e7eb; border-radius:20px; padding:20px; box-shadow:0 10px 24px rgba(15,23,42,0.05);">
+                    <p style="margin:0 0 8px; font-size:12px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.8px;">Entregados</p>
+                    <p style="margin:0; font-size:32px; font-weight:800; color:#0f172a;">@TotalEntregados</p>
+                </div>
+
+                <div style="background:white; border:1px solid #e5e7eb; border-radius:20px; padding:20px; box-shadow:0 10px 24px rgba(15,23,42,0.05);">
+                    <p style="margin:0 0 8px; font-size:12px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.8px;">Actualización</p>
+                    <p style="margin:0; font-size:16px; font-weight:800; color:#0f172a;">Automática cada 8 segundos</p>
+                </div>
+            </div>
+
+            @if (cargando)
+            {
+                <div style="background:white; border:1px solid #e5e7eb; border-radius:24px; padding:60px 24px; text-align:center; color:#64748b; box-shadow:0 10px 30px rgba(15,23,42,0.05);">
+                    <div style="font-size:42px; margin-bottom:12px;">⏳</div>
+                    <p style="margin:0; font-size:16px; font-weight:600;">Cargando pedidos...</p>
+                </div>
+            }
+            else if (pedidos.Count == 0)
+            {
+                <div style="text-align:center; padding:60px 24px; background:white; border:1px solid #e5e7eb; border-radius:24px; box-shadow:0 10px 30px rgba(15,23,42,0.05);">
+                    <div style="width:84px; height:84px; margin:0 auto 16px; border-radius:999px; background:#f8fafc; display:flex; align-items:center; justify-content:center; font-size:36px;">
+                        🍽️
+                    </div>
+                    <p style="font-size:24px; font-weight:800; color:#0f172a; margin:0 0 8px;">No tienes pedidos aún</p>
+                    <p style="font-size:14px; color:#64748b; margin:0 0 24px;">Crea un nuevo pedido para comenzar a registrar atenciones.</p>
+                    <button @onclick="IrNuevoPedido"
+                            style="padding:13px 22px; background:#171a35; color:white; border:none; border-radius:14px; font-size:14px; font-weight:700; cursor:pointer; box-shadow:0 10px 20px rgba(23,26,53,0.18);">
+                        + Crear primer pedido
+                    </button>
+                </div>
+            }
+            else
+            {
+                <div style="display:flex; flex-direction:column; gap:18px;">
+                    @foreach (var pedido in pedidos)
+                    {
+                        <div style="background:white; border:1px solid #e5e7eb; border-radius:24px; padding:24px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; box-shadow:0 10px 28px rgba(15,23,42,0.05);">
+
+                            <div style="display:flex; flex-direction:column; gap:16px; flex:1; min-width:300px;">
+
+                                <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+                                    <div style="width:50px; height:50px; border-radius:16px; background:#eef2ff; display:flex; align-items:center; justify-content:center; font-size:24px;">
+                                        🧾
+                                    </div>
+
+                                    <div>
+                                        <div style="font-size:24px; font-weight:800; color:#0f172a; line-height:1.1;">
+                                            Pedido #@pedido.Id.ToString("000")
+                                        </div>
+                                        <div style="margin-top:6px;">
+                                            <span style="@ObtenerEstiloEstado(pedido.Estado)">
+                                                @pedido.Estado
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:14px;">
+                                    <div style="background:#f8fafc; border:1px solid #eef2f7; border-radius:16px; padding:14px;">
+                                        <p style="margin:0; font-size:12px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.8px;">Mesa</p>
+                                        <p style="margin:6px 0 0; font-size:16px; font-weight:800; color:#0f172a;">@pedido.MesaNombre</p>
+                                    </div>
+
+                                    <div style="background:#f8fafc; border:1px solid #eef2f7; border-radius:16px; padding:14px;">
+                                        <p style="margin:0; font-size:12px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.8px;">Fecha</p>
+                                        <p style="margin:6px 0 0; font-size:16px; font-weight:800; color:#0f172a;">@pedido.Fecha.ToString("dd/MM/yyyy HH:mm")</p>
+                                    </div>
+
+                                    <div style="background:#f8fafc; border:1px solid #eef2f7; border-radius:16px; padding:14px;">
+                                        <p style="margin:0; font-size:12px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.8px;">Items</p>
+                                        <p style="margin:6px 0 0; font-size:16px; font-weight:800; color:#0f172a;">@pedido.Items.Count item(s)</p>
+                                    </div>
+                                </div>
+
+                                <div style="background:#f8fafc; border:1px solid #eef2f7; border-radius:16px; padding:14px;">
+                                    <p style="margin:0 0 4px; font-size:12px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.8px;">Comentario</p>
+                                    <p style="margin:0; font-size:14px; color:#475569; line-height:1.6;">
+                                        @(string.IsNullOrWhiteSpace(pedido.Comentarios) ? "Sin comentarios" : pedido.Comentarios)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div style="display:flex; flex-direction:column; align-items:flex-end; justify-content:center; gap:14px; min-width:190px;">
+                                <div style="text-align:right;">
+                                    <p style="margin:0; font-size:12px; color:#94a3b8; text-transform:uppercase; letter-spacing:0.8px;">Total</p>
+                                    <p style="margin:6px 0 0; font-size:30px; font-weight:800; color:#0f172a;">
+                                        S/ @pedido.Total.ToString("0.00")
+                                    </p>
+                                </div>
+
+                                <button @onclick="() => VerDetalle(pedido.Id)"
+                                        style="padding:13px 18px; background:#171a35; color:white; border:none; border-radius:14px; font-size:14px; font-weight:700; cursor:pointer; min-width:145px; box-shadow:0 10px 20px rgba(23,26,53,0.18);">
+                                    Ver detalle
+                                </button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</PaginaProtegida>
+
+@code {
+    private List<PedidoMozoDto> pedidos = new();
+    private bool cargando = true;
+    private bool inicializado = false;
+    private bool recargando = false;
+    private string nombreUsuario = "Usuario";
+    private Timer? timer;
+
+    private int TotalEnEspera =>
+        pedidos.Count(p => p.Estado.Equals("En Espera", StringComparison.OrdinalIgnoreCase));
+
+    private int TotalEntregados =>
+        pedidos.Count(p => p.Estado.Equals("Entregado", StringComparison.OrdinalIgnoreCase));
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender || inicializado)
+            return;
+
+        inicializado = true;
+
+        try
+        {
+            var usuario = await AuthService.ObtenerUsuario();
+            if (!string.IsNullOrWhiteSpace(usuario))
+            {
+                nombreUsuario = usuario;
+            }
+
+            await CargarPedidos();
+            IniciarAutoRefresh();
+        }
+        catch (Exception ex)
+        {
+            cargando = false;
+            Console.WriteLine("Error al cargar pedidos: " + ex.Message);
+            StateHasChanged();
+        }
+    }
+
+    private void IniciarAutoRefresh()
+    {
+        timer = new Timer(async _ =>
+        {
+            await InvokeAsync(async () =>
+            {
+                await CargarPedidosSilencioso();
+            });
+        }, null, TimeSpan.FromSeconds(8), TimeSpan.FromSeconds(8));
+    }
+
+    private async Task CargarPedidos()
+    {
+        if (recargando)
+            return;
+
+        recargando = true;
+        cargando = true;
+
+        try
+        {
+            var nuevosPedidos = await PedidoMozoApiService.ObtenerPedidosAsync();
+
+            if (nuevosPedidos.Count == 0 && pedidos.Count > 0)
+                return;
+
+            pedidos = nuevosPedidos;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error al actualizar pedidos: " + ex.Message);
+        }
+        finally
+        {
+            cargando = false;
+            recargando = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task CargarPedidosSilencioso()
+    {
+        if (recargando)
+            return;
+
+        recargando = true;
+
+        try
+        {
+            var nuevosPedidos = await PedidoMozoApiService.ObtenerPedidosAsync();
+
+            if (nuevosPedidos.Count == 0 && pedidos.Count > 0)
+                return;
+
+            pedidos = nuevosPedidos;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error en refresh silencioso de Mozo: " + ex.Message);
+        }
+        finally
+        {
+            recargando = false;
+            StateHasChanged();
+        }
+    }
+
+    private string ObtenerEstiloEstado(string estado)
+    {
+        if (estado.Equals("En Espera", StringComparison.OrdinalIgnoreCase))
+            return "font-size:12px; font-weight:700; padding:7px 12px; border-radius:999px; background:#fef3c7; color:#b45309;";
+
+        if (estado.Equals("En Preparación", StringComparison.OrdinalIgnoreCase))
+            return "font-size:12px; font-weight:700; padding:7px 12px; border-radius:999px; background:#dbeafe; color:#1d4ed8;";
+
+        if (estado.Equals("Listo", StringComparison.OrdinalIgnoreCase))
+            return "font-size:12px; font-weight:700; padding:7px 12px; border-radius:999px; background:#dcfce7; color:#15803d;";
+
+        if (estado.Equals("Entregado", StringComparison.OrdinalIgnoreCase))
+            return "font-size:12px; font-weight:700; padding:7px 12px; border-radius:999px; background:#e5e7eb; color:#374151;";
+
+        return "font-size:12px; font-weight:700; padding:7px 12px; border-radius:999px; background:#f3f4f6; color:#4b5563;";
+    }
+
+    private void IrNuevoPedido()
+    {
+        Navigation.NavigateTo("/mozo/nuevo-pedido");
+    }
+
+    private void VerDetalle(int id)
+    {
+        Navigation.NavigateTo($"/mozo/detalle-pedido/{id}");
+    }
+
+    private async Task CerrarSesion()
+    {
+        timer?.Dispose();
+        await AuthService.Logout();
+        Navigation.NavigateTo("/login");
+    }
+
+    public void Dispose()
+    {
+        timer?.Dispose();
+    }
+}

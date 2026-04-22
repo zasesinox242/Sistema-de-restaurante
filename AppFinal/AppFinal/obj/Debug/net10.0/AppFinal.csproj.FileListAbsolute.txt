@@ -1,0 +1,376 @@
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\EmbeddedAttribute.cs
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\ValidatableTypeAttribute.cs
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.csproj.AssemblyReference.cache
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.AssemblyInfoInputs.cache
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.AssemblyInfo.cs
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.csproj.CoreCompileInputs.cache
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\deybi\source\repos\AppFinal\AppFinal\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\deybi\source\repos\AppFinal\AppFinal\bin\Debug\net10.0\appsettings.json
+C:\Users\deybi\source\repos\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.staticwebassets.runtime.json
+C:\Users\deybi\source\repos\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.staticwebassets.endpoints.json
+C:\Users\deybi\source\repos\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.exe
+C:\Users\deybi\source\repos\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.deps.json
+C:\Users\deybi\source\repos\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.runtimeconfig.json
+C:\Users\deybi\source\repos\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.dll
+C:\Users\deybi\source\repos\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.pdb
+C:\Users\deybi\source\repos\AppFinal\AppFinal\bin\Debug\net10.0\Blazored.LocalStorage.dll
+C:\Users\deybi\source\repos\AppFinal\AppFinal\bin\Debug\net10.0\ch1seL.Blazored.LocalStorage.Concurrent.dll
+C:\Users\deybi\source\repos\AppFinal\AppFinal\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\deybi\source\repos\AppFinal\AppFinal\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\deybi\source\repos\AppFinal\AppFinal\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\deybi\source\repos\AppFinal\AppFinal\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\deybi\source\repos\AppFinal\AppFinal\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\scopedcss\Components\Layout\ReconnectModal.razor.rz.scp.css
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\scopedcss\bundle\AppFinal.styles.css
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\scopedcss\projectbundle\AppFinal.bundle.scp.css
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\21libl4vt1-{0}-khy4lop6wu-khy4lop6wu.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\yrhwmxvr7n-{0}-bqjiyaj88i-bqjiyaj88i.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\5qg83sqkxt-{0}-c2jlpeoesf-c2jlpeoesf.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\616w1kznll-{0}-erw9l3u2r3-erw9l3u2r3.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\w4t5cifla2-{0}-aexeepp0ev-aexeepp0ev.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\land1f6xm1-{0}-d7shbmvgxk-d7shbmvgxk.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\5wpeifnp2p-{0}-ausgxo2sd3-ausgxo2sd3.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\n2f8iz5i34-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\44ktmo8odw-{0}-cosvhxvwiu-cosvhxvwiu.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\4j34bik9cg-{0}-ub07r2b239-ub07r2b239.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ja7e9e9g66-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\o4urdyytyy-{0}-b7pk76d08c-b7pk76d08c.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ve4scdtamb-{0}-fsbi9cje9m-fsbi9cje9m.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\xlnb6ji97u-{0}-rzd6atqjts-rzd6atqjts.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ibfiapr3gc-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\5hawfboq6j-{0}-dxx9fxp4il-dxx9fxp4il.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\lzw8mswspn-{0}-jd9uben2k1-jd9uben2k1.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ij4161e3jx-{0}-khv3u5hwcm-khv3u5hwcm.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\6797t9obo0-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\p236cb3e2m-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\mz1ggw6ek0-{0}-c2oey78nd0-c2oey78nd0.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\87tpx6tg28-{0}-tdbxkamptv-tdbxkamptv.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\gl2tr4qxo1-{0}-j5mq2jizvt-j5mq2jizvt.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\5akgbt5k8s-{0}-06098lyss8-06098lyss8.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ct4gzz8oy1-{0}-nvvlpmu67g-nvvlpmu67g.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\pdd9tksvfx-{0}-s35ty4nyc5-s35ty4nyc5.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\vmxmpsbggf-{0}-pj5nd1wqec-pj5nd1wqec.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\xv7z0f6jkr-{0}-46ein0sx1k-46ein0sx1k.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\vpd2i6hh8s-{0}-v0zj4ognzu-v0zj4ognzu.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\f78xzjpayu-{0}-37tfw0ft22-37tfw0ft22.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\uegc7r1gdb-{0}-hrwsygsryq-hrwsygsryq.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\0ex72h7j0q-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\00b0kc5gzj-{0}-ft3s53vfgj-ft3s53vfgj.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\b03dnfmk9l-{0}-6cfz1n2cew-6cfz1n2cew.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\iaet5r72zs-{0}-6pdc2jztkx-6pdc2jztkx.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\7yv0obcmu0-{0}-493y06b0oq-493y06b0oq.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\w4qaqvp14f-{0}-iovd86k7lj-iovd86k7lj.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\mbi1kod9gm-{0}-vr1egmr9el-vr1egmr9el.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\416eh9jvtn-{0}-kbrnm935zg-kbrnm935zg.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\slpqeut9cd-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\dx6v5312vg-{0}-y7v9cxd14o-y7v9cxd14o.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\iwc5us3d46-{0}-notf2xhcfb-notf2xhcfb.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\km92bztsc9-{0}-h1s4sie4z3-h1s4sie4z3.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\z347752fkr-{0}-63fj8s7r0e-63fj8s7r0e.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\4djkivxrpw-{0}-0j3bgjxly4-0j3bgjxly4.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\33cggwmmti-{0}-abdmv1u4y3-abdmv1u4y3.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\d9w315y45w-{0}-b9228eflpl-b9228eflpl.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\12ajou5p13-{0}-2tj1sjhksk-2tj1sjhksk.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\zxowbj3wp0-{0}-xfbqsaux98-xfbqsaux98.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\compressed\re5x4uvqez-{0}-xfbqsaux98-xfbqsaux98.gz
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.csproj.Up2Date
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.dll
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\refint\AppFinal.dll
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.pdb
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.genruntimeconfig.cache
+C:\Users\deybi\source\repos\AppFinal\AppFinal\obj\Debug\net10.0\ref\AppFinal.dll
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\appsettings.json
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.staticwebassets.endpoints.json
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.staticwebassets.runtime.json
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.exe
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.deps.json
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.runtimeconfig.json
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.dll
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.pdb
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\Blazored.LocalStorage.dll
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\ch1seL.Blazored.LocalStorage.Concurrent.dll
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\EmbeddedAttribute.cs
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\ValidatableTypeAttribute.cs
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.csproj.AssemblyReference.cache
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.AssemblyInfoInputs.cache
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.AssemblyInfo.cs
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.csproj.CoreCompileInputs.cache
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\scopedcss\Components\Layout\ReconnectModal.razor.rz.scp.css
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\scopedcss\bundle\AppFinal.styles.css
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\scopedcss\projectbundle\AppFinal.bundle.scp.css
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\21libl4vt1-{0}-khy4lop6wu-khy4lop6wu.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\yrhwmxvr7n-{0}-bqjiyaj88i-bqjiyaj88i.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\5qg83sqkxt-{0}-c2jlpeoesf-c2jlpeoesf.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\616w1kznll-{0}-erw9l3u2r3-erw9l3u2r3.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\w4t5cifla2-{0}-aexeepp0ev-aexeepp0ev.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\land1f6xm1-{0}-d7shbmvgxk-d7shbmvgxk.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\5wpeifnp2p-{0}-ausgxo2sd3-ausgxo2sd3.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\n2f8iz5i34-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\44ktmo8odw-{0}-cosvhxvwiu-cosvhxvwiu.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\4j34bik9cg-{0}-ub07r2b239-ub07r2b239.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ja7e9e9g66-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\o4urdyytyy-{0}-b7pk76d08c-b7pk76d08c.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ve4scdtamb-{0}-fsbi9cje9m-fsbi9cje9m.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\xlnb6ji97u-{0}-rzd6atqjts-rzd6atqjts.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ibfiapr3gc-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\5hawfboq6j-{0}-dxx9fxp4il-dxx9fxp4il.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\lzw8mswspn-{0}-jd9uben2k1-jd9uben2k1.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ij4161e3jx-{0}-khv3u5hwcm-khv3u5hwcm.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\6797t9obo0-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\p236cb3e2m-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\mz1ggw6ek0-{0}-c2oey78nd0-c2oey78nd0.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\87tpx6tg28-{0}-tdbxkamptv-tdbxkamptv.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\gl2tr4qxo1-{0}-j5mq2jizvt-j5mq2jizvt.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\5akgbt5k8s-{0}-06098lyss8-06098lyss8.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ct4gzz8oy1-{0}-nvvlpmu67g-nvvlpmu67g.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\pdd9tksvfx-{0}-s35ty4nyc5-s35ty4nyc5.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\vmxmpsbggf-{0}-pj5nd1wqec-pj5nd1wqec.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\xv7z0f6jkr-{0}-46ein0sx1k-46ein0sx1k.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\vpd2i6hh8s-{0}-v0zj4ognzu-v0zj4ognzu.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\f78xzjpayu-{0}-37tfw0ft22-37tfw0ft22.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\uegc7r1gdb-{0}-hrwsygsryq-hrwsygsryq.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\0ex72h7j0q-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\00b0kc5gzj-{0}-ft3s53vfgj-ft3s53vfgj.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\b03dnfmk9l-{0}-6cfz1n2cew-6cfz1n2cew.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\iaet5r72zs-{0}-6pdc2jztkx-6pdc2jztkx.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\7yv0obcmu0-{0}-493y06b0oq-493y06b0oq.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\w4qaqvp14f-{0}-iovd86k7lj-iovd86k7lj.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\mbi1kod9gm-{0}-vr1egmr9el-vr1egmr9el.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\416eh9jvtn-{0}-kbrnm935zg-kbrnm935zg.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\slpqeut9cd-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\dx6v5312vg-{0}-y7v9cxd14o-y7v9cxd14o.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\iwc5us3d46-{0}-notf2xhcfb-notf2xhcfb.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\km92bztsc9-{0}-h1s4sie4z3-h1s4sie4z3.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\z347752fkr-{0}-63fj8s7r0e-63fj8s7r0e.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\4djkivxrpw-{0}-0j3bgjxly4-0j3bgjxly4.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\33cggwmmti-{0}-abdmv1u4y3-abdmv1u4y3.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\d9w315y45w-{0}-b9228eflpl-b9228eflpl.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\12ajou5p13-{0}-2tj1sjhksk-2tj1sjhksk.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\zxowbj3wp0-{0}-xfbqsaux98-xfbqsaux98.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\re5x4uvqez-{0}-xfbqsaux98-xfbqsaux98.gz
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.csproj.Up2Date
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.dll
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\refint\AppFinal.dll
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.pdb
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.genruntimeconfig.cache
+C:\Users\SAFESOLUTIONS3\Downloads\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\ref\AppFinal.dll
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\appsettings.json
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.staticwebassets.runtime.json
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.staticwebassets.endpoints.json
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.exe
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.deps.json
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.runtimeconfig.json
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.dll
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.pdb
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\Blazored.LocalStorage.dll
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\ch1seL.Blazored.LocalStorage.Concurrent.dll
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\EmbeddedAttribute.cs
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\ValidatableTypeAttribute.cs
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.csproj.AssemblyReference.cache
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.AssemblyInfoInputs.cache
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.AssemblyInfo.cs
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.csproj.CoreCompileInputs.cache
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\scopedcss\Components\Layout\ReconnectModal.razor.rz.scp.css
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\scopedcss\bundle\AppFinal.styles.css
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\scopedcss\projectbundle\AppFinal.bundle.scp.css
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\21libl4vt1-{0}-khy4lop6wu-khy4lop6wu.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\yrhwmxvr7n-{0}-bqjiyaj88i-bqjiyaj88i.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\5qg83sqkxt-{0}-c2jlpeoesf-c2jlpeoesf.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\616w1kznll-{0}-erw9l3u2r3-erw9l3u2r3.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\w4t5cifla2-{0}-aexeepp0ev-aexeepp0ev.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\land1f6xm1-{0}-d7shbmvgxk-d7shbmvgxk.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\5wpeifnp2p-{0}-ausgxo2sd3-ausgxo2sd3.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\n2f8iz5i34-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\44ktmo8odw-{0}-cosvhxvwiu-cosvhxvwiu.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\4j34bik9cg-{0}-ub07r2b239-ub07r2b239.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ja7e9e9g66-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\o4urdyytyy-{0}-b7pk76d08c-b7pk76d08c.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ve4scdtamb-{0}-fsbi9cje9m-fsbi9cje9m.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\xlnb6ji97u-{0}-rzd6atqjts-rzd6atqjts.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ibfiapr3gc-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\5hawfboq6j-{0}-dxx9fxp4il-dxx9fxp4il.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\lzw8mswspn-{0}-jd9uben2k1-jd9uben2k1.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ij4161e3jx-{0}-khv3u5hwcm-khv3u5hwcm.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\6797t9obo0-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\p236cb3e2m-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\mz1ggw6ek0-{0}-c2oey78nd0-c2oey78nd0.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\87tpx6tg28-{0}-tdbxkamptv-tdbxkamptv.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\gl2tr4qxo1-{0}-j5mq2jizvt-j5mq2jizvt.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\5akgbt5k8s-{0}-06098lyss8-06098lyss8.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ct4gzz8oy1-{0}-nvvlpmu67g-nvvlpmu67g.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\pdd9tksvfx-{0}-s35ty4nyc5-s35ty4nyc5.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\vmxmpsbggf-{0}-pj5nd1wqec-pj5nd1wqec.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\xv7z0f6jkr-{0}-46ein0sx1k-46ein0sx1k.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\vpd2i6hh8s-{0}-v0zj4ognzu-v0zj4ognzu.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\f78xzjpayu-{0}-37tfw0ft22-37tfw0ft22.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\uegc7r1gdb-{0}-hrwsygsryq-hrwsygsryq.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\0ex72h7j0q-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\00b0kc5gzj-{0}-ft3s53vfgj-ft3s53vfgj.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\b03dnfmk9l-{0}-6cfz1n2cew-6cfz1n2cew.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\iaet5r72zs-{0}-6pdc2jztkx-6pdc2jztkx.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\7yv0obcmu0-{0}-493y06b0oq-493y06b0oq.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\w4qaqvp14f-{0}-iovd86k7lj-iovd86k7lj.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\mbi1kod9gm-{0}-vr1egmr9el-vr1egmr9el.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\416eh9jvtn-{0}-kbrnm935zg-kbrnm935zg.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\slpqeut9cd-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\dx6v5312vg-{0}-y7v9cxd14o-y7v9cxd14o.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\iwc5us3d46-{0}-notf2xhcfb-notf2xhcfb.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\km92bztsc9-{0}-h1s4sie4z3-h1s4sie4z3.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\z347752fkr-{0}-63fj8s7r0e-63fj8s7r0e.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\4djkivxrpw-{0}-0j3bgjxly4-0j3bgjxly4.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\33cggwmmti-{0}-abdmv1u4y3-abdmv1u4y3.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\d9w315y45w-{0}-b9228eflpl-b9228eflpl.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\12ajou5p13-{0}-2tj1sjhksk-2tj1sjhksk.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\zxowbj3wp0-{0}-xfbqsaux98-xfbqsaux98.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\compressed\re5x4uvqez-{0}-xfbqsaux98-xfbqsaux98.gz
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.csproj.Up2Date
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.dll
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\refint\AppFinal.dll
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.pdb
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.genruntimeconfig.cache
+C:\Users\ABIGAIL SOLIS\AppFinal (2)\AppFinal (2)\AppFinal\AppFinal\obj\Debug\net10.0\ref\AppFinal.dll
+C:\Users\deybi\Downloads\AppFinal\AppFinal\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\deybi\Downloads\AppFinal\AppFinal\bin\Debug\net10.0\appsettings.json
+C:\Users\deybi\Downloads\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.staticwebassets.endpoints.json
+C:\Users\deybi\Downloads\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.staticwebassets.runtime.json
+C:\Users\deybi\Downloads\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.exe
+C:\Users\deybi\Downloads\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.deps.json
+C:\Users\deybi\Downloads\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.runtimeconfig.json
+C:\Users\deybi\Downloads\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.dll
+C:\Users\deybi\Downloads\AppFinal\AppFinal\bin\Debug\net10.0\AppFinal.pdb
+C:\Users\deybi\Downloads\AppFinal\AppFinal\bin\Debug\net10.0\Blazored.LocalStorage.dll
+C:\Users\deybi\Downloads\AppFinal\AppFinal\bin\Debug\net10.0\ch1seL.Blazored.LocalStorage.Concurrent.dll
+C:\Users\deybi\Downloads\AppFinal\AppFinal\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\deybi\Downloads\AppFinal\AppFinal\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\deybi\Downloads\AppFinal\AppFinal\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\deybi\Downloads\AppFinal\AppFinal\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\deybi\Downloads\AppFinal\AppFinal\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\EmbeddedAttribute.cs
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\ValidatableTypeAttribute.cs
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.csproj.AssemblyReference.cache
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.AssemblyInfoInputs.cache
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.AssemblyInfo.cs
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.csproj.CoreCompileInputs.cache
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\scopedcss\Components\Layout\ReconnectModal.razor.rz.scp.css
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\scopedcss\bundle\AppFinal.styles.css
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\scopedcss\projectbundle\AppFinal.bundle.scp.css
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\21libl4vt1-{0}-khy4lop6wu-khy4lop6wu.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\yrhwmxvr7n-{0}-bqjiyaj88i-bqjiyaj88i.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\5qg83sqkxt-{0}-c2jlpeoesf-c2jlpeoesf.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\616w1kznll-{0}-erw9l3u2r3-erw9l3u2r3.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\w4t5cifla2-{0}-aexeepp0ev-aexeepp0ev.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\land1f6xm1-{0}-d7shbmvgxk-d7shbmvgxk.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\5wpeifnp2p-{0}-ausgxo2sd3-ausgxo2sd3.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\n2f8iz5i34-{0}-k8d9w2qqmf-k8d9w2qqmf.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\44ktmo8odw-{0}-cosvhxvwiu-cosvhxvwiu.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\4j34bik9cg-{0}-ub07r2b239-ub07r2b239.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ja7e9e9g66-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\o4urdyytyy-{0}-b7pk76d08c-b7pk76d08c.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ve4scdtamb-{0}-fsbi9cje9m-fsbi9cje9m.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\xlnb6ji97u-{0}-rzd6atqjts-rzd6atqjts.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ibfiapr3gc-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\5hawfboq6j-{0}-dxx9fxp4il-dxx9fxp4il.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\lzw8mswspn-{0}-jd9uben2k1-jd9uben2k1.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ij4161e3jx-{0}-khv3u5hwcm-khv3u5hwcm.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\6797t9obo0-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\p236cb3e2m-{0}-lcd1t2u6c8-lcd1t2u6c8.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\mz1ggw6ek0-{0}-c2oey78nd0-c2oey78nd0.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\87tpx6tg28-{0}-tdbxkamptv-tdbxkamptv.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\gl2tr4qxo1-{0}-j5mq2jizvt-j5mq2jizvt.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\5akgbt5k8s-{0}-06098lyss8-06098lyss8.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\ct4gzz8oy1-{0}-nvvlpmu67g-nvvlpmu67g.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\pdd9tksvfx-{0}-s35ty4nyc5-s35ty4nyc5.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\vmxmpsbggf-{0}-pj5nd1wqec-pj5nd1wqec.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\xv7z0f6jkr-{0}-46ein0sx1k-46ein0sx1k.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\vpd2i6hh8s-{0}-v0zj4ognzu-v0zj4ognzu.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\f78xzjpayu-{0}-37tfw0ft22-37tfw0ft22.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\uegc7r1gdb-{0}-hrwsygsryq-hrwsygsryq.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\0ex72h7j0q-{0}-pk9g2wxc8p-pk9g2wxc8p.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\00b0kc5gzj-{0}-ft3s53vfgj-ft3s53vfgj.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\b03dnfmk9l-{0}-6cfz1n2cew-6cfz1n2cew.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\iaet5r72zs-{0}-6pdc2jztkx-6pdc2jztkx.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\7yv0obcmu0-{0}-493y06b0oq-493y06b0oq.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\w4qaqvp14f-{0}-iovd86k7lj-iovd86k7lj.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\mbi1kod9gm-{0}-vr1egmr9el-vr1egmr9el.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\416eh9jvtn-{0}-kbrnm935zg-kbrnm935zg.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\slpqeut9cd-{0}-jj8uyg4cgr-jj8uyg4cgr.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\dx6v5312vg-{0}-y7v9cxd14o-y7v9cxd14o.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\iwc5us3d46-{0}-notf2xhcfb-notf2xhcfb.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\km92bztsc9-{0}-h1s4sie4z3-h1s4sie4z3.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\z347752fkr-{0}-63fj8s7r0e-63fj8s7r0e.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\4djkivxrpw-{0}-0j3bgjxly4-0j3bgjxly4.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\33cggwmmti-{0}-abdmv1u4y3-abdmv1u4y3.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\d9w315y45w-{0}-b9228eflpl-b9228eflpl.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\12ajou5p13-{0}-2tj1sjhksk-2tj1sjhksk.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\zxowbj3wp0-{0}-xfbqsaux98-xfbqsaux98.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\compressed\re5x4uvqez-{0}-xfbqsaux98-xfbqsaux98.gz
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.csproj.Up2Date
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.dll
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\refint\AppFinal.dll
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.pdb
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\AppFinal.genruntimeconfig.cache
+C:\Users\deybi\Downloads\AppFinal\AppFinal\obj\Debug\net10.0\ref\AppFinal.dll

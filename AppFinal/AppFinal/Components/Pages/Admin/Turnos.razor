@@ -1,0 +1,493 @@
+﻿@page "/admin/empleado-turnos"
+@using AppFinal.Models
+@inject NavigationManager Navigation
+@inject AuthService AuthService
+@inject EmpleadoService EmpleadoService
+@inject TurnoService TurnoService
+@inject EmpleadoTurnoService EmpleadoTurnoService
+@inject IJSRuntime JS
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+
+<PaginaProtegida RolRequerido="ADMIN">
+    <div style="min-height:100vh; background:#f6f8fb; padding:32px 20px;">
+        <div style="max-width:1280px; margin:0 auto;">
+
+            <!-- Header -->
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:24px;">
+                <div style="display:flex; align-items:flex-start; gap:14px;">
+                    <button @onclick="Volver"
+                            style="padding:12px 16px; background:white; border:1px solid #d1d5db; border-radius:12px; font-size:14px; font-weight:700; cursor:pointer; color:#1f2937; box-shadow:0 4px 10px rgba(0,0,0,0.04);">
+                        ← Volver
+                    </button>
+
+                    <div>
+                        <p style="margin:0; font-size:13px; font-weight:700; letter-spacing:1px; color:#6b7280; text-transform:uppercase;">
+                            Administración
+                        </p>
+                        <h1 style="margin:6px 0 4px; font-size:34px; font-weight:800; color:#111827;">
+                            Asignación de Turnos
+                        </h1>
+                        <p style="margin:0; font-size:15px; color:#6b7280;">
+                            Bienvenido, <span style="font-weight:700; color:#374151;">@nombreUsuario</span>
+                        </p>
+                    </div>
+                </div>
+
+                <button @onclick="CerrarSesion"
+                        style="padding:12px 18px; background:#fff1f2; color:#be123c; border:1px solid #fecdd3; border-radius:12px; font-size:14px; font-weight:700; cursor:pointer;">
+                    Cerrar sesión
+                </button>
+            </div>
+
+            <!-- Resumen -->
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px; margin-bottom:24px;">
+                <div style="background:white; border:1px solid #e5e7eb; border-radius:18px; padding:18px 20px; box-shadow:0 6px 18px rgba(15,23,42,0.05);">
+                    <p style="margin:0 0 8px; font-size:12px; color:#9ca3af; text-transform:uppercase; letter-spacing:0.8px;">Asignaciones</p>
+                    <p style="margin:0; font-size:30px; font-weight:800; color:#111827;">@filas.Count</p>
+                </div>
+
+                <div style="background:white; border:1px solid #e5e7eb; border-radius:18px; padding:18px 20px; box-shadow:0 6px 18px rgba(15,23,42,0.05);">
+                    <p style="margin:0 0 8px; font-size:12px; color:#9ca3af; text-transform:uppercase; letter-spacing:0.8px;">Empleados</p>
+                    <p style="margin:0; font-size:30px; font-weight:800; color:#111827;">@empleados.Count</p>
+                </div>
+
+                <div style="background:white; border:1px solid #e5e7eb; border-radius:18px; padding:18px 20px; box-shadow:0 6px 18px rgba(15,23,42,0.05);">
+                    <p style="margin:0 0 8px; font-size:12px; color:#9ca3af; text-transform:uppercase; letter-spacing:0.8px;">Turnos</p>
+                    <p style="margin:0; font-size:30px; font-weight:800; color:#111827;">@turnos.Count</p>
+                </div>
+
+                <div style="background:white; border:1px solid #e5e7eb; border-radius:18px; padding:18px 20px; box-shadow:0 6px 18px rgba(15,23,42,0.05);">
+                    <p style="margin:0 0 8px; font-size:12px; color:#9ca3af; text-transform:uppercase; letter-spacing:0.8px;">Modo actual</p>
+                    <p style="margin:0; font-size:18px; font-weight:800; color:#111827;">@(editando ? "Edición" : "Registro")</p>
+                </div>
+            </div>
+
+            <!-- Contenido -->
+            <div style="display:grid; grid-template-columns:1.05fr 1.7fr; gap:22px; align-items:start;">
+
+                <!-- Formulario -->
+                <div style="background:white; border:1px solid #e5e7eb; border-radius:22px; padding:24px; box-shadow:0 8px 24px rgba(15,23,42,0.05);">
+                    <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+                        <span style="font-size:24px;">🗓️</span>
+                        <h3 style="margin:0; font-size:22px; font-weight:800; color:#111827;">
+                            @(editando ? "Editar Asignación" : "Nueva Asignación")
+                        </h3>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
+                        <div style="grid-column: span 2;">
+                            <label style="display:block; margin-bottom:8px; font-size:13px; font-weight:700; color:#4b5563;">Empleado</label>
+                            <select value="@empleadoSeleccionadoId" @onchange="OnEmpleadoChange"
+                                    style="width:100%; padding:12px 14px; border:1px solid #d1d5db; border-radius:12px; font-size:14px; box-sizing:border-box;">
+                                <option value="">Seleccione empleado</option>
+                                @foreach (var emp in empleados)
+                                {
+                                    <option value="@emp.codigoEmpleado">@emp.nombre @emp.apellido</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div style="grid-column: span 2;">
+                            <label style="display:block; margin-bottom:8px; font-size:13px; font-weight:700; color:#4b5563;">Turno</label>
+                            <select value="@turnoSeleccionadoId" @onchange="OnTurnoChange"
+                                    style="width:100%; padding:12px 14px; border:1px solid #d1d5db; border-radius:12px; font-size:14px; box-sizing:border-box;">
+                                <option value="">Seleccione turno</option>
+                                @foreach (var t in turnos)
+                                {
+                                    <option value="@t.id">@t.nombre</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div>
+                            <label style="display:block; margin-bottom:8px; font-size:13px; font-weight:700; color:#4b5563;">Hora Inicio</label>
+                            <input type="text" readonly value="@horaInicioMostrar"
+                                   style="width:100%; padding:12px 14px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:12px; color:#6b7280; box-sizing:border-box;" />
+                        </div>
+
+                        <div>
+                            <label style="display:block; margin-bottom:8px; font-size:13px; font-weight:700; color:#4b5563;">Hora Fin</label>
+                            <input type="text" readonly value="@horaFinMostrar"
+                                   style="width:100%; padding:12px 14px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:12px; color:#6b7280; box-sizing:border-box;" />
+                        </div>
+
+                        <div style="grid-column: span 2;">
+                            <label style="display:block; margin-bottom:8px; font-size:13px; font-weight:700; color:#4b5563;">Fecha</label>
+                            <input type="date" value="@fechaStr" @onchange="OnFechaChange"
+                                   style="width:100%; padding:12px 14px; border:1px solid #d1d5db; border-radius:12px; font-size:14px; box-sizing:border-box;" />
+                        </div>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(mensaje))
+                    {
+                        <div style="padding:12px 14px; margin-bottom:16px; border-radius:12px; background-color:@(esError ? "#fff1f2" : "#f0fdf4"); color:@(esError ? "#be123c" : "#166534"); border:1px solid @(esError ? "#fecdd3" : "#bbf7d0"); font-size:14px; font-weight:600;">
+                            @mensaje
+                        </div>
+                    }
+
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                        <button @onclick="GuardarAsignacion"
+                                style="padding:12px 18px; background:#171a35; color:white; border:none; border-radius:12px; font-size:14px; font-weight:700; cursor:pointer; box-shadow:0 8px 18px rgba(23,26,53,0.18);">
+                            @(editando ? "Actualizar asignación" : "Guardar asignación")
+                        </button>
+
+                        @if (editando)
+                        {
+                            <button @onclick="CancelarEdicion"
+                                    style="padding:12px 18px; background:#f3f4f6; color:#374151; border:none; border-radius:12px; font-size:14px; font-weight:700; cursor:pointer;">
+                                Cancelar
+                            </button>
+                        }
+                    </div>
+                </div>
+
+                <!-- Tabla -->
+                <div style="background:white; border:1px solid #e5e7eb; border-radius:22px; padding:22px; box-shadow:0 8px 24px rgba(15,23,42,0.05);">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:18px;">
+                        <div>
+                            <h3 style="margin:0; font-size:22px; font-weight:800; color:#111827;">Asignaciones Registradas</h3>
+                            <p style="margin:6px 0 0; font-size:14px; color:#6b7280;">Relaciona empleados con turnos y fechas específicas.</p>
+                        </div>
+
+                        <div style="padding:8px 12px; background:#f9fafb; border:1px solid #eef2f7; border-radius:999px; font-size:13px; font-weight:700; color:#374151;">
+                            Total: @filas.Count
+                        </div>
+                    </div>
+
+                    @if (cargando)
+                    {
+                        <div style="text-align:center; padding:48px 12px; color:#6b7280;">
+                            Cargando asignaciones...
+                        </div>
+                    }
+                    else if (!filas.Any())
+                    {
+                        <div style="text-align:center; padding:48px 12px; color:#6b7280;">
+                            No hay asignaciones registradas
+                        </div>
+                    }
+                    else
+                    {
+                        <div style="overflow-x:auto;">
+                            <table style="width:100%; border-collapse:collapse; min-width:930px;">
+                                <thead>
+                                    <tr style="background:#f9fafb;">
+                                        <th style="padding:14px 12px; text-align:left; font-size:12px; color:#6b7280; text-transform:uppercase; letter-spacing:0.8px;">Empleado</th>
+                                        <th style="padding:14px 12px; text-align:left; font-size:12px; color:#6b7280; text-transform:uppercase; letter-spacing:0.8px;">Turno</th>
+                                        <th style="padding:14px 12px; text-align:left; font-size:12px; color:#6b7280; text-transform:uppercase; letter-spacing:0.8px;">Horario</th>
+                                        <th style="padding:14px 12px; text-align:left; font-size:12px; color:#6b7280; text-transform:uppercase; letter-spacing:0.8px;">Fecha</th>
+                                        <th style="padding:14px 12px; text-align:right; font-size:12px; color:#6b7280; text-transform:uppercase; letter-spacing:0.8px;">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var fila in filas)
+                                    {
+                                        <tr style="border-top:1px solid #f3f4f6;">
+                                            <td style="padding:16px 12px;">
+                                                <div style="display:flex; flex-direction:column;">
+                                                    <span style="font-size:15px; font-weight:700; color:#111827;">@fila.NombreEmpleado</span>
+                                                    <span style="font-size:13px; color:#6b7280;">Asignación activa</span>
+                                                </div>
+                                            </td>
+
+                                            <td style="padding:16px 12px;">
+                                                <span style="font-size:13px; font-weight:700; padding:7px 12px; border-radius:999px; background:#eef2ff; color:#4338ca;">
+                                                    @fila.NombreTurno
+                                                </span>
+                                            </td>
+
+                                            <td style="padding:16px 12px;">
+                                                <div style="display:flex; flex-direction:column;">
+                                                    <span style="font-size:14px; font-weight:700; color:#111827;">@fila.HoraInicio - @fila.HoraFin</span>
+                                                    <span style="font-size:13px; color:#6b7280;">Bloque horario</span>
+                                                </div>
+                                            </td>
+
+                                            <td style="padding:16px 12px;">
+                                                <span style="font-size:14px; font-weight:700; color:#111827;">@fila.Fecha</span>
+                                            </td>
+
+                                            <td style="padding:16px 12px; text-align:right;">
+                                                <button @onclick="() => EditarAsignacion(fila.Asignacion)"
+                                                        style="margin-right:8px; padding:8px 12px; background:#171a35; color:white; border:none; border-radius:10px; font-size:13px; font-weight:700; cursor:pointer;">
+                                                    Editar
+                                                </button>
+                                                <button @onclick="() => EliminarAsignacion(fila.Asignacion.id!.Value)"
+                                                        style="padding:8px 12px; background:#fff1f2; color:#be123c; border:1px solid #fecdd3; border-radius:10px; font-size:13px; font-weight:700; cursor:pointer;">
+                                                    Eliminar
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</PaginaProtegida>
+
+@code {
+    private class FilaTabla
+    {
+        public EmpleadoTurno Asignacion { get; set; } = new();
+        public string NombreEmpleado { get; set; } = "—";
+        public string NombreTurno { get; set; } = "—";
+        public string HoraInicio { get; set; } = "—";
+        public string HoraFin { get; set; } = "—";
+        public string Fecha { get; set; } = "—";
+    }
+
+    private string nombreUsuario = "Usuario";
+    private List<Empleado> empleados = new();
+    private List<Turno> turnos = new();
+    private List<EmpleadoTurno> asignaciones = new();
+    private List<FilaTabla> filas = new();
+
+    private int? asignacionId = null;
+    private int? empleadoSeleccionadoId = null;
+    private int? turnoSeleccionadoId = null;
+    private string fechaStr = "";
+
+    private bool editando = false;
+    private string mensaje = "";
+    private bool esError = false;
+    private bool cargando = true;
+    private bool inicializado = false;
+
+    private string horaInicioMostrar =>
+        turnos.FirstOrDefault(t => t.id == turnoSeleccionadoId)?.horaInicio ?? "";
+    private string horaFinMostrar =>
+        turnos.FirstOrDefault(t => t.id == turnoSeleccionadoId)?.horaFin ?? "";
+
+    private void OnEmpleadoChange(ChangeEventArgs e)
+        => empleadoSeleccionadoId = int.TryParse(e.Value?.ToString(), out int id) ? id : null;
+
+    private void OnTurnoChange(ChangeEventArgs e)
+        => turnoSeleccionadoId = int.TryParse(e.Value?.ToString(), out int id) ? id : null;
+
+    private void OnFechaChange(ChangeEventArgs e)
+        => fechaStr = e.Value?.ToString() ?? "";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender || inicializado)
+            return;
+
+        inicializado = true;
+
+        nombreUsuario = await AuthService.ObtenerUsuario() ?? "Admin";
+        await CargarEmpleados();
+        await CargarTurnos();
+        await CargarAsignaciones();
+
+        cargando = false;
+        StateHasChanged();
+    }
+
+    private async Task CargarEmpleados()
+    {
+        try
+        {
+            empleados = await EmpleadoService.GetEmpleadosAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"[Page] Error empleados: {ex.Message}");
+        }
+    }
+
+    private async Task CargarTurnos()
+    {
+        try
+        {
+            turnos = await TurnoService.GetTurnosAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"[Page] Error turnos: {ex.Message}");
+        }
+    }
+
+    private async Task CargarAsignaciones()
+    {
+        try
+        {
+            asignaciones = await EmpleadoTurnoService.GetEmpleadoTurnosAsync();
+
+            filas = asignaciones.Select(a =>
+            {
+                var turnoId = a.turno?.id;
+                var empId = a.empleado?.codigoEmpleado;
+
+                var turnoObj = turnoId.HasValue ? turnos.FirstOrDefault(t => t.id == turnoId) : null;
+                var empObj = empId.HasValue ? empleados.FirstOrDefault(e => e.codigoEmpleado == empId) : null;
+
+                return new FilaTabla
+                {
+                    Asignacion = a,
+                    NombreEmpleado = empObj != null ? $"{empObj.nombre} {empObj.apellido}" : "—",
+                    NombreTurno = turnoObj != null ? turnoObj.nombre : (a.turno?.nombre ?? "—"),
+                    HoraInicio = turnoObj != null ? turnoObj.horaInicio : (a.turno?.horaInicio ?? "—"),
+                    HoraFin = turnoObj != null ? turnoObj.horaFin : (a.turno?.horaFin ?? "—"),
+                    Fecha = a.fecha?.ToString("yyyy-MM-dd") ?? "—"
+                };
+            }).ToList();
+        }
+        catch (Exception ex)
+        {
+            mensaje = $"Error al cargar: {ex.Message}";
+            esError = true;
+        }
+    }
+
+    private async Task GuardarAsignacion()
+    {
+        if (!empleadoSeleccionadoId.HasValue || empleadoSeleccionadoId == 0)
+        {
+            mensaje = "Seleccione un empleado";
+            esError = true;
+            return;
+        }
+
+        if (!turnoSeleccionadoId.HasValue || turnoSeleccionadoId == 0)
+        {
+            mensaje = "Seleccione un turno";
+            esError = true;
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(fechaStr))
+        {
+            mensaje = "Seleccione una fecha";
+            esError = true;
+            return;
+        }
+
+        var empleadoObj = empleados.FirstOrDefault(e => e.codigoEmpleado == empleadoSeleccionadoId.Value);
+        var turnoObj = turnos.FirstOrDefault(t => t.id == turnoSeleccionadoId.Value);
+
+        if (empleadoObj == null)
+        {
+            mensaje = "Empleado no encontrado";
+            esError = true;
+            return;
+        }
+
+        if (turnoObj == null)
+        {
+            mensaje = "Turno no encontrado";
+            esError = true;
+            return;
+        }
+
+        try
+        {
+            if (editando)
+            {
+                if (!asignacionId.HasValue)
+                {
+                    mensaje = "ID inválido";
+                    esError = true;
+                    return;
+                }
+
+                var ok = await EmpleadoTurnoService.UpdateEmpleadoTurnoAsync(asignacionId.Value, empleadoObj, turnoObj, fechaStr);
+
+                if (ok)
+                {
+                    mensaje = "Actualizado correctamente";
+                    esError = false;
+                    await CargarAsignaciones();
+                    CancelarEdicion();
+                }
+                else
+                {
+                    mensaje = "Error al actualizar";
+                    esError = true;
+                }
+            }
+            else
+            {
+                var nuevo = await EmpleadoTurnoService.CreateEmpleadoTurnoAsync(empleadoObj, turnoObj, fechaStr);
+
+                if (nuevo != null)
+                {
+                    mensaje = "Creado correctamente";
+                    esError = false;
+                    await CargarAsignaciones();
+                    LimpiarFormulario();
+                }
+                else
+                {
+                    mensaje = "Error al crear";
+                    esError = true;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            mensaje = $"Error: {ex.Message}";
+            esError = true;
+        }
+    }
+
+    private void EditarAsignacion(EmpleadoTurno item)
+    {
+        asignacionId = item.id;
+        empleadoSeleccionadoId = item.empleado?.codigoEmpleado;
+        turnoSeleccionadoId = item.turno?.id;
+        fechaStr = item.fecha?.ToString("yyyy-MM-dd") ?? "";
+        editando = true;
+        mensaje = "";
+    }
+
+    private void CancelarEdicion()
+    {
+        LimpiarFormulario();
+        editando = false;
+        mensaje = "";
+    }
+
+    private void LimpiarFormulario()
+    {
+        asignacionId = null;
+        empleadoSeleccionadoId = null;
+        turnoSeleccionadoId = null;
+        fechaStr = "";
+    }
+
+    private async Task EliminarAsignacion(int id)
+    {
+        if (!await JS.InvokeAsync<bool>("confirm", "¿Eliminar esta asignación?"))
+            return;
+
+        var ok = await EmpleadoTurnoService.DeleteEmpleadoTurnoAsync(id);
+
+        if (ok)
+        {
+            mensaje = "Eliminado correctamente";
+            esError = false;
+            await CargarAsignaciones();
+
+            if (editando && asignacionId == id)
+                CancelarEdicion();
+        }
+        else
+        {
+            mensaje = "Error al eliminar";
+            esError = true;
+        }
+    }
+
+    private void Volver() => Navigation.NavigateTo("/admin/dashboard");
+
+    private async Task CerrarSesion()
+    {
+        await AuthService.Logout();
+        Navigation.NavigateTo("/login");
+    }
+}
